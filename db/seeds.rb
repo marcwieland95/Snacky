@@ -6,4 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Snack.create(name: 'Popcorn', description: "It's white", price_rappens: Money.new(12.34), image: File.new("#{Rails.root}/db/seed_images/popcorn.png") )
+Snack.create!(name: 'Popcorn', description: "It's white", price_rappens: 2434, image: File.new("#{Rails.root}/db/seed_images/popcorn.png") )
+
+user = User.new(
+    :email                 => 'user@example.com',
+    :password              => 'Password1234',
+    :password_confirmation => 'Password1234'
+)
+user.save!

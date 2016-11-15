@@ -1,6 +1,6 @@
 class SnacksController < ApplicationController
   before_action :set_snack, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   # GET /snacks
   # GET /snacks.json
   def index

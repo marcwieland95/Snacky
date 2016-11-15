@@ -17,7 +17,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @snack.image %>
+  <%= image_tag @snack.image.url(:medium) %>
 </p>
 
 <%= link_to 'Edit', edit_snack_path(@snack) %> |
