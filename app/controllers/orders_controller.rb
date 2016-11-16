@@ -5,7 +5,8 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @open_orders = Order.open
+    @purchased_orders = Order.purchased
   end
 
   # GET /orders/1

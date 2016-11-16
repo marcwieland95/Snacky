@@ -1,0 +1,24 @@
+<%= form_for(shopping) do |f| %>
+  <% if shopping.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shopping.errors.count, "error") %> prohibited this shopping from being saved:</h2>
+
+      <ul>
+      <% shopping.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :finished_orders %>
+    <%= f.select(:finished_orders, Order.open.collect {|p| [ p, p.id ] },
+                  { :prompt => "Please select"},
+                  { :multiple => true, :id => 'orders_select' }) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

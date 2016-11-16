@@ -10,17 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115211113) do
+ActiveRecord::Schema.define(version: 20161115220331) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "snack_id"
     t.integer  "quantity"
     t.integer  "client_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "status",     default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "status",      default: 0
+    t.integer  "shopping_id"
     t.index ["client_id"], name: "index_orders_on_client_id"
+    t.index ["shopping_id"], name: "index_orders_on_shopping_id"
     t.index ["snack_id"], name: "index_orders_on_snack_id"
+  end
+
+  create_table "shoppings", force: :cascade do |t|
+    t.integer  "shopper_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shopper_id"], name: "index_shoppings_on_shopper_id"
   end
 
   create_table "snacks", force: :cascade do |t|

@@ -11,4 +11,8 @@ class Snack < ApplicationRecord
 
   has_many :orders, inverse_of: :snack
 
+  def to_s
+    self.name
+  end
+
 end
