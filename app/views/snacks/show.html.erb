@@ -20,5 +20,5 @@
   <%= image_tag @snack.image.url(:medium) %>
 </p>
 
-<%= link_to 'Edit', edit_snack_path(@snack) %> |
-<%= link_to 'Back', snacks_path %>
+<%= link_to 'Edit', edit_snack_path(@snack), class: 'button button-clear' %> |
+<%= link_to 'Back', snacks_path, class: 'button button-clear' %>

@@ -2,9 +2,9 @@
 
 <h1>Orders</h1>
 
-<%= link_to 'New Order', new_order_path %>
+<%= link_to 'New Order', new_order_path, class: 'button button-outline' %>
 
-<h2>Open</h2>
+<h3>Open</h3>
 <table>
   <thead>
     <tr>
@@ -23,15 +23,15 @@
         <td><%= order.quantity %></td>
         <td><%= order.order_price %></td>
         <td><%= order.client.email %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', order, class: 'button button-clear' %></td>
+        <td><%= link_to 'Edit', edit_order_path(order), class: 'button button-clear' %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button button-clear' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<h2>Purchased</h2>
+<h3>Purchased</h3>
 <table>
   <thead>
   <tr>
@@ -50,9 +50,9 @@
         <td><%= order.quantity %></td>
         <td><%= order.order_price %></td>
         <td><%= order.client.email %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', order, class: 'button button-clear' %></td>
+        <td><%= link_to 'Edit', edit_order_path(order), class: 'button button-clear' %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button button-clear' %></td>
       </tr>
   <% end %>
   </tbody>

@@ -20,9 +20,9 @@
         <td><%= snack.description %></td>
         <td><%= snack.price %></td>
         <td><%= image_tag snack.image.url(:thumb) %></td>
-        <td><%= link_to 'Show', snack %></td>
-        <td><%= link_to 'Edit', edit_snack_path(snack) %></td>
-        <td><%= link_to 'Destroy', snack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', snack, class: 'button button-clear' %></td>
+        <td><%= link_to 'Edit', edit_snack_path(snack), class: 'button button-clear' %></td>
+        <td><%= link_to 'Destroy', snack, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button button-clear' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Snack', new_snack_path %>
+<%= link_to 'New Snack', new_snack_path, class: 'button button-outline' %>

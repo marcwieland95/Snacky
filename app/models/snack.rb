@@ -9,7 +9,7 @@ class Snack < ApplicationRecord
 
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
-  has_many :orders, inverse_of: :snack
+  has_many :orders, inverse_of: :snack, dependent: :destroy
 
   def to_s
     self.name
