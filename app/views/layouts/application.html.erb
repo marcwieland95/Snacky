@@ -8,15 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.2.0/milligram.css" />
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
-  <%= yield %>
+
+
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+
+          <%= yield %>
+
+
+
+
+
   </body>
 </html>

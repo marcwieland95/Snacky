@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  root to: 'static_pages#index'
   resources :orders
   devise_for :users
   resources :snacks
