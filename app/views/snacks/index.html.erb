@@ -2,31 +2,33 @@
 
 <h1>Snacks</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
 
-  <tbody>
+  <table>
+    <thead>
+    <tr class="row">
+      <th class="column">Image</th>
+      <th class="column">Name</th>
+      <th class="column">Description</th>
+      <th class="column">Price</th>
+    </tr>
+    </thead>
+
+    <tbody>
     <% @snacks.each do |snack| %>
-      <tr>
-        <td><%= snack.name %></td>
-        <td><%= snack.description %></td>
-        <td><%= snack.price %></td>
-        <td><%= image_tag snack.image.url(:thumb) %></td>
-        <td><%= link_to 'Show', snack, class: 'button button-clear' %></td>
-        <td><%= link_to 'Edit', edit_snack_path(snack), class: 'button button-clear' %></td>
-        <td><%= link_to 'Destroy', snack, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button button-clear' %></td>
-      </tr>
+        <tr class="row">
+          <td class="column"><%= image_tag snack.image.url(:thumb) %></td>
+          <td class="column"><%= snack.name %></td>
+          <td class="column"><%= snack.description %></td>
+          <td class="column"><%= snack.price %></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
+
+
+
 
 <br>
 
