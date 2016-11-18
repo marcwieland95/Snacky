@@ -54,8 +54,16 @@
   </header>
 
   <main>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %>
+        <script type="text/javascript">
+          Materialize.toast('<%= notice %>', 4000)
+        </script>
+    <% end %>
+    <% if alert %>
+        <script type="text/javascript">
+          Materialize.toast('<%= alert %>', 4000)
+        </script>
+    <% end %>
 
     <%= yield %>
   </main>

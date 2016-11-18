@@ -4,7 +4,7 @@ class SnacksController < ApplicationController
   # GET /snacks
   # GET /snacks.json
   def index
-    @snacks = Snack.all
+    @snacks = Snack.paginate(:page => params[:page], :per_page => 1)
   end
 
   # GET /snacks/1
