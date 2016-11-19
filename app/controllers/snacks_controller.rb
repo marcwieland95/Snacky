@@ -7,10 +7,6 @@ class SnacksController < ApplicationController
     @snacks = Snack.paginate(:page => params[:page], :per_page => 5)
   end
 
-  # GET /snacks/1
-  # GET /snacks/1.json
-  def show
-  end
 
   # GET /snacks/new
   def new
@@ -28,9 +24,10 @@ class SnacksController < ApplicationController
 
     respond_to do |format|
       if @snack.save
-        format.html { redirect_to @snack, notice: 'Snack was successfully created.' }
-        format.json { render :show, status: :created, location: @snack }
+        format.html { redirect_to snacks_url, notice: 'Snack was successfully created.' }
+        format.json { render :index, status: :created }
       else
+        flash[:alert] = @snack.errors.full_messages.map{|o|o }.join("\n")
         format.html { render :new }
         format.json { render json: @snack.errors, status: :unprocessable_entity }
       end
@@ -42,9 +39,10 @@ class SnacksController < ApplicationController
   def update
     respond_to do |format|
       if @snack.update(snack_params)
-        format.html { redirect_to @snack, notice: 'Snack was successfully updated.' }
-        format.json { render :show, status: :ok, location: @snack }
+        format.html { redirect_to snacks_url, notice: 'Snack was successfully updated.' }
+        format.json { render :index, status: :ok }
       else
+        flash[:alert] = @snack.errors.full_messages.map{|o|o }.join("\n")
         format.html { render :edit }
         format.json { render json: @snack.errors, status: :unprocessable_entity }
       end

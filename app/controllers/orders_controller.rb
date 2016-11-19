@@ -5,8 +5,8 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @open_orders = Order.open
-    @purchased_orders = Order.purchased
+    @open_orders = orders_for_current_user.open
+    @purchased_orders = orders_for_current_user.purchased
   end
 
   # GET /orders/1
@@ -75,4 +75,7 @@ class OrdersController < ApplicationController
       params.require(:order).permit(:snack_id, :quantity)
     end
 
+    def orders_for_current_user
+      Order.where(client_id: current_user.id)
+    end
 end
