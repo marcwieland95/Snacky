@@ -1,4 +1,4 @@
-<%= form_for(order) do |f| %>
+<%= form_for(order, class: 'col s12') do |f| %>
   <% if order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -13,15 +13,27 @@
 
   <div class="field">
     <%= f.label :snack_id %>
-    <%= f.collection_select :snack_id, Snack.order(:name),:id,:name, include_blank: true %>
+    <%= f.select :snack_id, options_for_select(Snack.order(:name).map {|s| [s.name, s.id, {'class' => 'left circle', 'data-icon' => s.image }]}), :prompt => "Snack auswählen", :class => 'icons'  %>
+
+
   </div>
 
-  <div class="field">
-    <%= f.label :quantity %>
-    <%= f.number_field :quantity %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.label :quantity %>
+      <%= f.number_field  :quantity, step: 1.0%>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+    <div class="row">
+
+      <div class="actions">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Speichern
+          <i class="material-icons right">send</i>
+        </button>
+
+      </div>
+    </div>
 <% end %>
+

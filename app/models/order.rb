@@ -1,4 +1,8 @@
 class Order < ApplicationRecord
+
+  after_initialize :set_defaults, unless: :persisted?
+  # The set_defaults will only work if the object is new
+
   belongs_to :snack, inverse_of: :orders
   belongs_to :client, class_name: 'User', inverse_of: :orders
   belongs_to :shopping, inverse_of: :finished_orders, optional: true
@@ -11,5 +15,11 @@ class Order < ApplicationRecord
 
   def to_s
     "#{quantity} x #{snack} for #{client}"
+  end
+
+  private
+
+  def set_defaults
+    self.quantity  ||= 1
   end
 end
