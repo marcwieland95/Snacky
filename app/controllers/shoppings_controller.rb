@@ -1,10 +1,11 @@
 class ShoppingsController < ApplicationController
   before_action :set_shopping, only: [:process_shopping, :finish_shopping, :destroy, :finish_order, :reopen_order]
   before_action :set_order, only: [:finish_order, :reopen_order]
+
   def start_shopping
     @shopping = Shopping.start(current_user)
 
-    redirect_to(@shopping)
+    redirect_to shopping_url(@shopping)
   end
 
   def process_shopping
