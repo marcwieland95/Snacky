@@ -38,7 +38,12 @@ gem "paperclip", "~> 5.0.0"
 gem 'money-rails'
 
 gem 'devise'
+gem 'devise_invitable', '~> 1.7.0'
 
+# Mailcatcher don't like to e put into a gemfile so please
+# install it with gem install mailcatcher
+# and run it with mailcatcher instead
+# as documented on https://mailcatcher.me/
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

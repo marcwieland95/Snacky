@@ -2,8 +2,10 @@ Rails.application.routes.draw do
 
   root to: 'static_pages#index'
   resources :orders, except: :show
-  devise_for :users
   resources :snacks, except: :show
+
+  devise_for :users
+
 
   controller :shoppings do
     get 'shoppings/start'     => :start_shopping
