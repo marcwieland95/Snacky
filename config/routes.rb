@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   root to: 'static_pages#index'
-  resources :orders
+  resources :orders, except: :show
   devise_for :users
-  resources :snacks
+  resources :snacks, except: :show
 
   controller :shoppings do
     get 'shoppings/start'     => :start_shopping

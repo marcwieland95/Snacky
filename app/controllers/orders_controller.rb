@@ -9,10 +9,6 @@ class OrdersController < ApplicationController
     @purchased_orders = orders_for_current_user.purchased
   end
 
-  # GET /orders/1
-  # GET /orders/1.json
-  def show
-  end
 
   # GET /orders/new
   def new
@@ -31,9 +27,10 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @order }
+        format.html { redirect_to orders_url, notice: 'Order was successfully created.' }
+        format.json { render :index, status: :created}
       else
+        flash[:alert] = @order.errors.full_messages.map{|o|o }.join("\n")
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
@@ -45,9 +42,10 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
-        format.json { render :show, status: :ok, location: @order }
+        format.html { redirect_to orders_url, notice: 'Order was successfully updated.' }
+        format.json { render :index, status: :ok}
       else
+        flash[:alert] = @order.errors.full_messages.map{|o|o }.join("\n")
         format.html { render :edit }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
