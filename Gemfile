@@ -40,6 +40,9 @@ gem 'money-rails'
 gem 'devise'
 gem 'devise_invitable', '~> 1.7.0'
 
+gem 'materialize-sass'
+
+
 # Mailcatcher don't like to e put into a gemfile so please
 # install it with gem install mailcatcher
 # and run it with mailcatcher instead

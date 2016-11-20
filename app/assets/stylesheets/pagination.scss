@@ -1,0 +1,8 @@
+@import 'materialize';
+
+.pagination
+{
+  li{
+    @extend waves-effect;
+  }
+}
